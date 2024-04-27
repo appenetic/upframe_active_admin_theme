@@ -24,28 +24,18 @@ body.active_admin.logged_in {
 }
 
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 50px; /* Maintain a consistent height across all devices */
-  background-color: $header-background;
-  border-bottom: 1px solid $header-border-color;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 3;
-  
   .site_title {
     width: 160px;
     height: 50px;
     font-size: 16px;
     line-height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
     background-color: $header-background;
+    border-bottom: 1px solid $header-border-color;
     text-align: center;
-    z-index: 2;
-    position: relative;
-    padding-left: 50px; /* Padding to push logo right of the menu icon */
+    margin: 0;
 
     @media screen and (min-width: $sm-width) {
       width: $header-width;
@@ -56,6 +46,155 @@ body.active_admin.logged_in {
 
     @media screen and (min-width: $x-lg-width) {
       width: $lg-header-width;
+    }
+    
+    #site_title_image {
+      height: 100%;
+      padding: 6px 0;
+    }
+  }
+
+  #utility_nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 50px;
+    width: calc(100% - 160px);
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    text-align: right;
+    background-color: $header-background;
+    border-bottom: 1px solid $header-border-color;
+
+    &:before {
+      @include icon($icon-menu);
+
+      display: inline;
+      visibility: visible;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: $text-color;
+      padding: 15px 0;
+      text-align: center;
+      width: 40px;
+      font-size: 20px;
+    }
+
+    @media screen and (min-width: $sm-width) {
+      height: 60px;
+      width: $screen-header-width;
+
+      &:before {
+        padding: 20px 0;
+      }
+    }
+
+    @media screen and (min-width: $lg-width) {
+      &:before {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width: $x-lg-width) {
+      width: $lg-screen-header-width;
+    }
+
+    li {
+      display: inline-block;
+      @include transition-button();
+
+      &:hover {
+        background-color: $header-nav-action-hover-background;
+      }
+
+      &:active {
+        background-color: $header-nav-action-active-background;
+      }
+    }
+
+    #current_user {
+      a {
+        color: transparent;
+        position: relative;
+        width: 50px;
+        height: 49px;
+        display: inline-block;
+
+        &:before {
+          @include icon($icon-user);
+
+          display: inline;
+          visibility: visible;
+          cursor: pointer;
+          position: absolute;
+          top: 0;
+          right: 0;
+          color: $text-color;
+          padding: 15px 0;
+          text-align: center;
+          width: 50px;
+          font-size: 20px;
+        }
+
+        @media screen and (min-width: $sm-width) {
+          width: 60px;
+          height: 59px;
+
+          &:before {
+            padding: 20px 0;
+            width: 60px;
+          }
+        }
+      }
+    }
+
+    #logout {
+      min-width: 50px;
+      min-height: 49px;
+      float: right;
+
+      a {
+        color: transparent;
+        position: relative;
+        width: 50px;
+        display: block;
+
+        &:before {
+          @include icon($icon-logout);
+
+          display: inline;
+          visibility: visible;
+          cursor: pointer;
+          position: absolute;
+          top: 0;
+          right: 0;
+          color: $text-color;
+          padding: 15px 0;
+          text-align: center;
+          width: 50px;
+          font-size: 20px;
+        }
+
+      }
+      
+      @media screen and (min-width: $sm-width) {
+        min-width: 60px;
+        min-height: 59px;
+
+        a {
+          width: 60px;
+          height: 59px;
+
+          &:before {
+            padding: 20px 0;
+            width: 60px;
+          }
+        }
+      }
     }
   }
 }
