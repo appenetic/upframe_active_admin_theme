@@ -21,7 +21,6 @@ function menuToggle(event) {
   const currentUser = document.querySelector('#current_user')
   const logout = document.querySelector('#logout')
   const forbiddenLinks = event.target === logout ||
-    logout.contains(event.target) ||
     event.target === currentUser ||
     (currentUser && currentUser.contains(event.target))
   if (!forbiddenLinks) {
