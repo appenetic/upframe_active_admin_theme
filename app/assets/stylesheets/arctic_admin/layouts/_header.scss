@@ -37,6 +37,9 @@ body.active_admin.logged_in {
     text-align: center;
     margin: 0;
     left: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @media screen and (min-width: $sm-width) {
       width: $header-width;
@@ -65,9 +68,9 @@ body.active_admin.logged_in {
   #utility_nav {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     height: 50px;
-    width: calc(100% - 160px);
+    width: calc(100% - 50px);
     position: fixed;
     top: 0;
     right: 0;
